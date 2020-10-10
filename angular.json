@@ -50,6 +50,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -114,6 +115,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -145,6 +147,11 @@
           }
         }
       }
-    }},
-  "defaultProject": "technaxis"
+    }
+  },
+  "defaultProject": "technaxis",
+  "cli": {
+    "analytics": "8711b715-6777-46c5-a7a0-77f01cf717d0",
+    "defaultCollection": "@datorama/akita"
+  }
 }

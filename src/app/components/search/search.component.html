@@ -1,0 +1,9 @@
+<nav>
+  <form [ngStyle]="{'background-color': formColor}" (ngSubmit)="submit()">
+    <button><fa-icon [icon]="faSearch"></fa-icon></button>
+    <input placeholder="Search free high-resolution photos"
+           (focus)="formColorWhite()"
+           (focusout)="formColorGrey()">
+  </form>
+</nav>
+<div class="wall"></div>

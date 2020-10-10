@@ -1,0 +1,40 @@
+<div class="main">
+  <div class="wrapper">
+    <div class="grid">
+      <div class="picture"
+           *ngFor="let item of data?.slice(0, data.length / 3); index as i">
+        <div class="shadow">
+          <div class="button-field">
+            <button class="heart"><fa-icon [icon]="faHeart"></fa-icon> </button>
+            <button><fa-icon [icon]="faArrowDown"></fa-icon> </button>
+          </div>
+        </div>
+        <img src="{{item.urls.small}}" alt="">
+      </div>
+    </div>
+    <div>
+      <div class="picture"
+           *ngFor="let item of data?.slice(data.length / 3, -data.length / 3); index as i">
+        <div class="shadow">
+          <div class="button-field">
+            <button class="heart"><fa-icon [icon]="faHeart"></fa-icon> </button>
+            <button><fa-icon [icon]="faArrowDown"></fa-icon> </button>
+          </div>
+        </div>
+        <img src="{{item.urls.small}}" alt="">
+      </div>
+    </div>
+    <div>
+      <div class="picture"
+           *ngFor="let item of data?.slice(data.length / 3 * 2); index as i">
+        <div class="shadow">
+          <div class="button-field">
+            <button class="heart"><fa-icon [icon]="faHeart"></fa-icon> </button>
+            <button><fa-icon [icon]="faArrowDown"></fa-icon> </button>
+          </div>
+        </div>
+        <img src="{{item.urls.small}}" alt="">
+      </div>
+    </div>
+  </div>
+</div>
