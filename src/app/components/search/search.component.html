@@ -1,7 +1,7 @@
 <nav>
   <form #form="ngForm"
         [ngStyle]="{'background-color': formColor}"
-        (ngSubmit)="submit(form)">
+        (ngSubmit)="submit(form); hidePicture(form)">
     <button routerLink="/search">
       <fa-icon [icon]="faSearch"></fa-icon>
     </button>
@@ -13,7 +13,9 @@
            (focus)="formColorWhite()"
            (focusout)="formColorGrey()">
   </form>
-  <button id="home" routerLink="/main">Home</button>
+  <button id="home"
+          routerLink="/main"
+          (click)="showPicture()">Home</button>
 </nav>
 <div class="wall">
   <div class="categories">
@@ -24,4 +26,30 @@
     <button>Nature</button>
     <button>People</button>
   </div>
+</div>
+<div class="additional-search" *ngIf="picture">
+  <picture>
+    <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=3799&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=3799&amp;h=594 2x" media="(min-width: 3600px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=3599&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=3599&amp;h=594 2x" media="(min-width: 3400px)"/>
+    <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=3399&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=3399&amp;h=594 2x" media="(min-width: 3200px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=3199&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=3199&amp;h=594 2x" media="(min-width: 3000px)"/>
+    <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=2999&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=2999&amp;h=594 2x" media="(min-width: 2800px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=2799&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=2799&amp;h=594 2x" media="(min-width: 2600px)"/>
+    <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=2599&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=2599&amp;h=594 2x" media="(min-width: 2400px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=2399&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=2399&amp;h=594 2x" media="(min-width: 2200px)"/>
+    <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=2199&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=2199&amp;h=594 2x" media="(min-width: 2000px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1999&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1999&amp;h=594 2x" media="(min-width: 1800px)"/>
+    <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1799&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1799&amp;h=594 2x" media="(min-width: 1600px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1599&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1599&amp;h=594 2x" media="(min-width: 1400px)"/>
+    <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1399&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1399&amp;h=594 2x" media="(min-width: 1200px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1199&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1199&amp;h=594 2x" media="(min-width: 1000px)"/>
+    <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=999&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=999&amp;h=594 2x" media="(min-width: 800px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=799&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=799&amp;h=594 2x" media="(min-width: 600px)"/>
+    <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=599&amp;h=310 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=599&amp;h=310 2x" media="(min-width: 400px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=399&amp;h=230 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=399&amp;h=230 2x" media="(min-width: 200px)"/>
+    <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=199&amp;h=230 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=199&amp;h=230 2x"/>
+    <img role="presentation" src="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1000&amp;h=1000" alt=""/>
+  </picture>
+  <form #form="ngForm"
+        (ngSubmit)="submit(form); hidePicture(form)">
+    <button routerLink="/search">
+      <fa-icon [icon]="faSearch"></fa-icon>
+    </button>
+    <input placeholder="Search free high-resolution photos"
+           name="search"
+           ngModel
+           type="text"
+           maxlength="25">
+  </form>
 </div>

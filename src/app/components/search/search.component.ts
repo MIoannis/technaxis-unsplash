@@ -13,6 +13,7 @@ import { NgForm } from '@angular/forms';
 export class SearchComponent implements OnInit {
   faSearch = faSearch;
   formColor = '#eee';
+  picture = true;
 
   constructor(private service: SessionService) { }
 
@@ -20,7 +21,9 @@ export class SearchComponent implements OnInit {
   }
 
   submit(form: NgForm): void {
-    this.service.updateData(form.value.search);
+    if (form.value.search.length > 2) {
+      this.service.updateData(form.value.search);
+    }
   }
 
   formColorWhite(): void {
@@ -29,5 +32,16 @@ export class SearchComponent implements OnInit {
 
   formColorGrey(): void {
     this.formColor = '#eee';
+  }
+
+  hidePicture(form: NgForm): void {
+    if (form.value.search.length > 2) {
+      this.picture = false;
+    }
+    this.picture = false;
+  }
+
+  showPicture(): void {
+    this.picture = true;
   }
 }
