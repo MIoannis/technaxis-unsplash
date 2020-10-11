@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../store/session.service';
 
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -18,8 +19,8 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(): void {
-    this.service.updateData();
+  submit(form: NgForm): void {
+    this.service.updateData(form.value.search);
   }
 
   formColorWhite(): void {

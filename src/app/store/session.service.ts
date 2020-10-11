@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-import { SessionStore } from './session.store';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { RootObject } from '../Interfaces/single.photo.int';
+
+import { SessionStore } from './session.store';
+
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+
+import { PhotosRootObject } from '../Interfaces/photos.int';
+import { SearchRootObject } from '../Interfaces/search.photos.int';
 
 
 @Injectable({
@@ -25,12 +29,21 @@ export class SessionService {
     return throwError(error);
   }
 
-  updateData(): void {
+  updateData(searchValue: string): void {
+    this._searchData(searchValue).subscribe(searchData => this.store.update({searchData}));
+  }
+
+  _searchData(searchValue: string): Observable<any> {
+    return this.http.get<SearchRootObject>(`https://api.unsplash.com/search/photos?client_id=H8bic_D8k_LS4QHOfhBCVrBSABASJmJOCJdjyZ9eQf4&per_page=30&query=${searchValue}`)
+      .pipe(catchError(SessionService.handleError));
+  }
+
+  initialUpdateData(): void {
     this._getData().subscribe(data => this.store.update({data}));
   }
 
   _getData(): Observable<any> {
-    return this.http.get<RootObject>('https://api.unsplash.com/photos?client_id=H8bic_D8k_LS4QHOfhBCVrBSABASJmJOCJdjyZ9eQf4&per_page=30')
+    return this.http.get<PhotosRootObject>(`https://api.unsplash.com/photos?client_id=H8bic_D8k_LS4QHOfhBCVrBSABASJmJOCJdjyZ9eQf4&per_page=30`)
       .pipe(catchError(SessionService.handleError));
   }
 }

@@ -1,7 +1,15 @@
 <nav>
-  <form [ngStyle]="{'background-color': formColor}" (ngSubmit)="submit()">
-    <button><fa-icon [icon]="faSearch"></fa-icon></button>
+  <form #form="ngForm"
+        [ngStyle]="{'background-color': formColor}"
+        (ngSubmit)="submit(form)">
+    <button routerLink="/search">
+      <fa-icon [icon]="faSearch"></fa-icon>
+    </button>
     <input placeholder="Search free high-resolution photos"
+           name="search"
+           ngModel
+           type="text"
+           maxlength="25"
            (focus)="formColorWhite()"
            (focusout)="formColorGrey()">
   </form>

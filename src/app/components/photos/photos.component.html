@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div>
       <div class="picture"
-           *ngFor="let item of data?.slice(0, data.length / 3); index as i">
+           *ngFor="let item of searchData.results?.slice(0, searchData.results.length / 3); index as i">
         <div class="shadow">
           <div class="button-field">
             <button class="heart"><fa-icon [icon]="faHeart"></fa-icon></button>
@@ -14,7 +14,8 @@
     </div>
     <div>
       <div class="picture"
-           *ngFor="let item of data?.slice(data.length / 3, -data.length / 3); index as i">
+           *ngFor="let item of searchData.results?.slice(searchData.results.length / 3, -searchData.results.length / 3);
+            index as i">
         <div class="shadow">
           <div class="button-field">
             <button class="heart"><fa-icon [icon]="faHeart"></fa-icon></button>
@@ -26,7 +27,7 @@
     </div>
     <div>
       <div class="picture"
-           *ngFor="let item of data?.slice(data.length / 3 * 2); index as i">
+           *ngFor="let item of searchData.results?.slice(searchData.results.length / 3 * 2); index as i">
         <div class="shadow">
           <div class="button-field">
             <button class="heart"><fa-icon [icon]="faHeart"></fa-icon></button>

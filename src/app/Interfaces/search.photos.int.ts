@@ -29,17 +29,17 @@ export interface ProfileImage {
   large: string;
 }
 
-export interface Sponsor {
+export interface User {
   id: string;
   updated_at: Date;
   username: string;
   name: string;
   first_name: string;
-  last_name?: any;
+  last_name: string;
   twitter_username: string;
   portfolio_url: string;
   bio: string;
-  location?: any;
+  location: string;
   links: Links2;
   profile_image: ProfileImage;
   instagram_username: string;
@@ -49,14 +49,43 @@ export interface Sponsor {
   accepted_tos: boolean;
 }
 
-export interface Sponsorship {
-  impression_urls: string[];
-  tagline: string;
-  tagline_url: string;
-  sponsor: Sponsor;
+export interface Type {
+  slug: string;
+  pretty_slug: string;
+}
+
+export interface Category {
+  slug: string;
+  pretty_slug: string;
+}
+
+export interface Subcategory {
+  slug: string;
+  pretty_slug: string;
+}
+
+export interface Ancestry {
+  type: Type;
+  category: Category;
+  subcategory: Subcategory;
+}
+
+export interface Urls2 {
+  raw: string;
+  full: string;
+  regular: string;
+  small: string;
+  thumb: string;
 }
 
 export interface Links3 {
+  self: string;
+  html: string;
+  download: string;
+  download_location: string;
+}
+
+export interface Links4 {
   self: string;
   html: string;
   photos: string;
@@ -72,7 +101,7 @@ export interface ProfileImage2 {
   large: string;
 }
 
-export interface User {
+export interface User2 {
   id: string;
   updated_at: Date;
   username: string;
@@ -83,7 +112,7 @@ export interface User {
   portfolio_url: string;
   bio: string;
   location: string;
-  links: Links3;
+  links: Links4;
   profile_image: ProfileImage2;
   instagram_username: string;
   total_collections: number;
@@ -92,7 +121,7 @@ export interface User {
   accepted_tos: boolean;
 }
 
-export interface PhotosRootObject {
+export interface CoverPhoto {
   id: string;
   created_at: Date;
   updated_at: Date;
@@ -102,13 +131,57 @@ export interface PhotosRootObject {
   color: string;
   blur_hash: string;
   description: string;
-  alt_description?: any;
+  alt_description: string;
+  urls: Urls2;
+  links: Links3;
+  categories: any[];
+  likes: number;
+  liked_by_user: boolean;
+  current_user_collections: any[];
+  sponsorship?: any;
+  user: User2;
+}
+
+export interface Source {
+  ancestry: Ancestry;
+  title: string;
+  subtitle: string;
+  description: string;
+  meta_title: string;
+  meta_description: string;
+  cover_photo: CoverPhoto;
+}
+
+export interface Tag {
+  type: string;
+  title: string;
+  source: Source;
+}
+
+export interface Result {
+  id: string;
+  created_at: Date;
+  updated_at: Date;
+  promoted_at?: Date;
+  width: number;
+  height: number;
+  color: string;
+  blur_hash: string;
+  description: string;
+  alt_description: string;
   urls: Urls;
   links: Links;
   categories: any[];
   likes: number;
   liked_by_user: boolean;
   current_user_collections: any[];
-  sponsorship: Sponsorship;
+  sponsorship?: any;
   user: User;
+  tags: Tag[];
+}
+
+export interface SearchRootObject {
+  total: number;
+  total_pages: number;
+  results: Result[];
 }

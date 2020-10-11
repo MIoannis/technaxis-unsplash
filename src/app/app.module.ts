@@ -13,12 +13,14 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
 import { MainComponent } from './components/main/main.component';
+import { PhotosComponent } from './components/photos/photos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    MainComponent
+    MainComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,
