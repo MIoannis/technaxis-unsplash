@@ -5,8 +5,15 @@
            *ngFor="let item of searchData.results?.slice(0, searchData.results.length / 3); index as i">
         <div class="shadow">
           <div class="button-field">
-            <button class="heart"><fa-icon [icon]="faHeart"></fa-icon></button>
-            <button><fa-icon [icon]="faArrowDown"></fa-icon> </button>
+            <button class="heart">
+              <fa-icon [icon]="faHeart"></fa-icon>
+            </button>
+            <button>
+              <a style="color:black"
+                 href="https://unsplash.com/photos/{{item.id}}/download?force=true">
+                <fa-icon [icon]="faArrowDown"></fa-icon>
+              </a>
+            </button>
           </div>
         </div>
         <img src="{{item.urls.small}}" alt="">
@@ -18,8 +25,14 @@
             index as i">
         <div class="shadow">
           <div class="button-field">
-            <button class="heart"><fa-icon [icon]="faHeart"></fa-icon></button>
-            <button><fa-icon [icon]="faArrowDown"></fa-icon> </button>
+            <button class="heart">
+              <fa-icon [icon]="faHeart"></fa-icon></button>
+            <button>
+              <a style="color:black"
+                 href="https://unsplash.com/photos/{{item.id}}/download?force=true">
+                <fa-icon [icon]="faArrowDown"></fa-icon>
+              </a>
+            </button>
           </div>
         </div>
         <img src="{{item.urls.small}}" alt="">
@@ -30,8 +43,15 @@
            *ngFor="let item of searchData.results?.slice(searchData.results.length / 3 * 2); index as i">
         <div class="shadow">
           <div class="button-field">
-            <button class="heart"><fa-icon [icon]="faHeart"></fa-icon></button>
-            <button><fa-icon [icon]="faArrowDown"></fa-icon> </button>
+            <button class="heart">
+              <fa-icon [icon]="faHeart"></fa-icon>
+            </button>
+            <button>
+              <a style="color:black"
+                 href="https://unsplash.com/photos/{{item.id}}/download?force=true">
+                <fa-icon [icon]="faArrowDown"></fa-icon>
+              </a>
+            </button>
           </div>
         </div>
         <img src="{{item.urls.small}}" alt="">
