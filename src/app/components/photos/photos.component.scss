@@ -55,6 +55,21 @@
             }
           }
 
+          a {
+            outline: 0;
+            border: 0;
+            border-radius: 4px;
+            padding: 6px 12px 7px 13px;
+            cursor: pointer;
+            background-color: #eee;
+            transition: 0.15s;
+
+            &:hover {
+              background-color: white;
+              transition: .15s;
+            }
+          }
+
           .heart {
             &:hover {
               color: #d00000;
