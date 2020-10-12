@@ -22,17 +22,20 @@ export class MainComponent implements OnInit {
   show = false;
   image: string;
   mouseOnButton = false;
+  page: number;
 
   constructor(public query: SessionQuery,
               private service: SessionService) { }
 
   ngOnInit(): void {
-    this.service.initialUpdateData();
+    this.service.initialUpdateData(1);
     this.query.photos$.subscribe(data => this.data = data);
+    this.query.page$.subscribe(page => this.page = page);
   }
 
   onScroll(): void {
-    console.log('test');
+    this.service.updatePage(this.page + 1);
+    this.service.concatStore(this.page);
   }
 
   showPictureFirst(i): void {

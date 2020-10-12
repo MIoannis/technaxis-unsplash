@@ -3,76 +3,82 @@
     <ng-template [ngIf]="(this.query.searchPhotos$ | async) !== null"
                  [ngIfElse]="noData">
       <div>
-        <div class="picture"
-             (click)="showPictureFirst(i)"
-             *ngFor="let item of searchData.results?.slice(0, searchData.results.length / 3); index as i">
-          <div class="shadow">
-            <div class="button-field">
-              <button class="heart"
-                      [ngClass]="{'active-heart': searchData.results[i].liked_by_user}"
-                      (mouseenter)="posMouseValue()"
-                      (mouseleave)="negMouseValue()"
-                      (click)="likePhotoFirst(i)">
-                <fa-icon [icon]="faHeart"></fa-icon>
-              </button>
-              <a style="color:black"
-                 (mouseenter)="posMouseValue()"
-                 (mouseleave)="negMouseValue()"
-                 href="https://unsplash.com/photos/{{item.id}}/download?force=true">
-                <fa-icon [icon]="faArrowDown"></fa-icon>
-              </a>
+        <app-scroll (scrolled)="onScroll()">
+          <div class="picture"
+               (click)="showPictureFirst(i)"
+               *ngFor="let item of searchData?.slice(0, searchData.length / 3); index as i">
+            <div class="shadow">
+              <div class="button-field">
+                <button class="heart"
+                        [ngClass]="{'active-heart': searchData[i].liked_by_user}"
+                        (mouseenter)="posMouseValue()"
+                        (mouseleave)="negMouseValue()"
+                        (click)="likePhotoFirst(i)">
+                  <fa-icon [icon]="faHeart"></fa-icon>
+                </button>
+                <a style="color:black"
+                   (mouseenter)="posMouseValue()"
+                   (mouseleave)="negMouseValue()"
+                   href="https://unsplash.com/photos/{{item.id}}/download?force=true">
+                  <fa-icon [icon]="faArrowDown"></fa-icon>
+                </a>
+              </div>
             </div>
+            <img src="{{item.urls.small}}" alt="">
           </div>
-          <img src="{{item.urls.small}}" alt="">
-        </div>
+        </app-scroll>
       </div>
       <div>
-        <div class="picture"
-             (click)="showPictureSecond(i)"
-             *ngFor="let item of searchData.results?.slice(searchData.results.length / 3, -searchData.results.length / 3);
+        <app-scroll (scrolled)="onScroll()">
+          <div class="picture"
+               (click)="showPictureSecond(i)"
+               *ngFor="let item of searchData?.slice(searchData.length / 3, -searchData.length / 3);
             index as i">
-          <div class="shadow">
-            <div class="button-field">
-              <button class="heart"
-                      [ngClass]="{'active-heart': searchData.results[i + 10].liked_by_user}"
-                      (mouseenter)="posMouseValue()"
-                      (mouseleave)="negMouseValue()"
-                      (click)="likePhotoSecond(i)">
-                <fa-icon [icon]="faHeart"></fa-icon></button>
-              <a style="color:black"
-                 (mouseenter)="posMouseValue()"
-                 (mouseleave)="negMouseValue()"
-                 href="https://unsplash.com/photos/{{item.id}}/download?force=true">
-                <fa-icon [icon]="faArrowDown"></fa-icon>
-              </a>
+            <div class="shadow">
+              <div class="button-field">
+                <button class="heart"
+                        [ngClass]="{'active-heart': searchData[i + 10].liked_by_user}"
+                        (mouseenter)="posMouseValue()"
+                        (mouseleave)="negMouseValue()"
+                        (click)="likePhotoSecond(i)">
+                  <fa-icon [icon]="faHeart"></fa-icon></button>
+                <a style="color:black"
+                   (mouseenter)="posMouseValue()"
+                   (mouseleave)="negMouseValue()"
+                   href="https://unsplash.com/photos/{{item.id}}/download?force=true">
+                  <fa-icon [icon]="faArrowDown"></fa-icon>
+                </a>
+              </div>
             </div>
+            <img src="{{item.urls.small}}" alt="">
           </div>
-          <img src="{{item.urls.small}}" alt="">
-        </div>
+        </app-scroll>
       </div>
       <div>
-        <div class="picture"
-             (click)="showPictureThird(i)"
-             *ngFor="let item of searchData.results?.slice(searchData.results.length / 3 * 2); index as i">
-          <div class="shadow">
-            <div class="button-field">
-              <button class="heart"
-                      [ngClass]="{'active-heart': searchData.results[i + 20].liked_by_user}"
-                      (mouseenter)="posMouseValue()"
-                      (mouseleave)="negMouseValue()"
-                      (click)="likePhotoThird(i)">
-                <fa-icon [icon]="faHeart"></fa-icon>
-              </button>
-              <a style="color:black"
-                 (mouseenter)="posMouseValue()"
-                 (mouseleave)="negMouseValue()"
-                 href="https://unsplash.com/photos/{{item.id}}/download?force=true">
-                <fa-icon [icon]="faArrowDown"></fa-icon>
-              </a>
+        <app-scroll (scrolled)="onScroll()">
+          <div class="picture"
+               (click)="showPictureThird(i)"
+               *ngFor="let item of searchData?.slice(searchData.length / 3 * 2); index as i">
+            <div class="shadow">
+              <div class="button-field">
+                <button class="heart"
+                        [ngClass]="{'active-heart': searchData[i + 20].liked_by_user}"
+                        (mouseenter)="posMouseValue()"
+                        (mouseleave)="negMouseValue()"
+                        (click)="likePhotoThird(i)">
+                  <fa-icon [icon]="faHeart"></fa-icon>
+                </button>
+                <a style="color:black"
+                   (mouseenter)="posMouseValue()"
+                   (mouseleave)="negMouseValue()"
+                   href="https://unsplash.com/photos/{{item.id}}/download?force=true">
+                  <fa-icon [icon]="faArrowDown"></fa-icon>
+                </a>
+              </div>
             </div>
+            <img src="{{item.urls.small}}" alt="">
           </div>
-          <img src="{{item.urls.small}}" alt="">
-        </div>
+        </app-scroll>
       </div>
     </ng-template>
   </div>

@@ -22,12 +22,14 @@ export class SearchComponent implements OnInit {
 
   submit(form: NgForm): void {
     if (form.value.search.length > 2) {
-      this.service.updateData(form.value.search);
+      this.service.updateData(form.value.search, 1);
+      this.service.updateSearchValue(form.value.search);
     }
   }
 
   showCategoryPhotos(value): void {
-    this.service.updateData(value);
+    this.service.updateData(value, 1);
+    this.service.updateSearchValue(value);
     this.picture = false;
   }
 
