@@ -10,6 +10,7 @@
     .picture {
       margin: 8px;
       position: relative;
+      cursor: zoom-in;
 
       &:hover {
         .shadow {
@@ -86,6 +87,7 @@
   bottom: 0;
   z-index: 3;
   background-color: rgba(0, 0, 0, 0.5);
+  cursor: zoom-out;
 
   button {
     margin: 20px;
