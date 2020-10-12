@@ -11,5 +11,6 @@ export class SessionQuery extends Query<SessionState> {
   searchPhotos$ = this.select(store => store.searchData);
   photos$ = this.select(store => store.data);
   page$ = this.select(store => store.page);
+  searchPage$ = this.select(store => store.searchPage);
   searchValue$ = this.select(store => store.searchValue);
 }

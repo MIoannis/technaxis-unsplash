@@ -47,14 +47,14 @@ export class MainComponent implements OnInit {
 
   showPictureSecond(i): void {
     if (this.mouseOnButton === false) {
-      this.image = this.data[i + 10].urls.small;
+      this.image = this.data[i + this.data.length / 3].urls.small;
       this.show = true;
     }
   }
 
   showPictureThird(i): void {
     if (this.mouseOnButton === false) {
-      this.image = this.data[i + 20].urls.small;
+      this.image = this.data[i + this.data.length / 3 * 2].urls.small;
       this.show = true;
     }
   }

@@ -30,7 +30,7 @@ export class PhotosComponent implements OnInit {
   ngOnInit(): void {
     this.query.searchPhotos$.subscribe(data => this.searchData = data);
     this.query.searchValue$.subscribe(value => this.searchValue = value);
-    this.query.page$.subscribe(value => this.page = value);
+    this.query.searchPage$.subscribe(value => this.page = value);
   }
 
   onScroll(): void {
@@ -47,14 +47,14 @@ export class PhotosComponent implements OnInit {
 
   showPictureSecond(i): void {
     if (this.mouseOnButton === false) {
-      this.image = this.searchData[i + 10].urls.small;
+      this.image = this.searchData[i + this.searchData.length / 3].urls.small;
       this.show = true;
     }
   }
 
   showPictureThird(i): void {
     if (this.mouseOnButton === false) {
-      this.image = this.searchData[i + 20].urls.small;
+      this.image = this.searchData[i + this.searchData.length / 3 * 2].urls.small;
       this.show = true;
     }
   }
