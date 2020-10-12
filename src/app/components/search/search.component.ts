@@ -26,6 +26,11 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  showCategoryPhotos(value): void {
+    this.service.updateData(value);
+    this.picture = false;
+  }
+
   formColorWhite(): void {
     this.formColor = 'white';
   }

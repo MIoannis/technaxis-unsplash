@@ -19,12 +19,12 @@
 </nav>
 <div class="wall">
   <div class="categories">
-    <button>Architecture</button>
-    <button>Experimental</button>
-    <button>Fashion</button>
-    <button>Film</button>
-    <button>Nature</button>
-    <button>People</button>
+    <button (click)="showCategoryPhotos('Architecture')">Architecture</button>
+    <button (click)="showCategoryPhotos('Experimental')">Experimental</button>
+    <button (click)="showCategoryPhotos('Fashion')">Fashion</button>
+    <button (click)="showCategoryPhotos('Film')">Film</button>
+    <button (click)="showCategoryPhotos('Nature')">Nature</button>
+    <button (click)="showCategoryPhotos('People')">People</button>
   </div>
 </div>
 <div class="additional-search" *ngIf="picture">

@@ -104,7 +104,7 @@ nav {
     width: 65%;
     height: 60px;
     overflow: hidden;
-    border: 2px solid #eee;
+    border: 3px solid #D1D1D1;
     margin-left: 15px;
     transition: .1s;
     max-width: 1100px;
@@ -115,7 +115,7 @@ nav {
 
     &:hover {
       transition: .1s;
-      border: 3px solid #D1D1D1;
+      border: 3px solid #b5b5b5;
     }
 
     button {
@@ -126,6 +126,7 @@ nav {
       outline: 0;
       transition: .25s;
       font-size: 1.1em;
+
       &:hover {
         color: black;
         transition: .25s;

@@ -14,13 +14,15 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
 import { MainComponent } from './components/main/main.component';
 import { PhotosComponent } from './components/photos/photos.component';
+import { ScrollComponent } from './components/scroll/scroll.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     MainComponent,
-    PhotosComponent
+    PhotosComponent,
+    ScrollComponent
   ],
   imports: [
     BrowserModule,

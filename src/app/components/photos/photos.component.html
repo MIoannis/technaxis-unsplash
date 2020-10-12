@@ -1,61 +1,99 @@
 <div class="main">
   <div class="wrapper">
-    <div>
-      <div class="picture"
-           *ngFor="let item of searchData.results?.slice(0, searchData.results.length / 3); index as i">
-        <div class="shadow">
-          <div class="button-field">
-            <button class="heart">
-              <fa-icon [icon]="faHeart"></fa-icon>
-            </button>
-            <button>
-              <a style="color:black"
-                 href="https://unsplash.com/photos/{{item.id}}/download?force=true">
-                <fa-icon [icon]="faArrowDown"></fa-icon>
-              </a>
-            </button>
+    <ng-template [ngIf]="(this.query.searchPhotos$ | async) !== null" [ngIfElse]="noData">
+      <div>
+        <div class="picture"
+             (click)="showPictureFirst(i)"
+             *ngFor="let item of searchData.results?.slice(0, searchData.results.length / 3); index as i">
+          <div class="shadow">
+            <div class="button-field">
+              <button class="heart"
+                      (mouseenter)="posMouseValue()"
+                      (mouseleave)="negMouseValue()"
+                      [ngClass]="{'active-heart': searchData.results[i].liked_by_user}"
+                      (click)="likePhotoFirst(i)">
+                <fa-icon [icon]="faHeart"></fa-icon>
+              </button>
+              <button>
+                <a style="color:black"
+                   href="https://unsplash.com/photos/{{item.id}}/download?force=true">
+                  <fa-icon [icon]="faArrowDown"></fa-icon>
+                </a>
+              </button>
+            </div>
           </div>
+          <img src="{{item.urls.small}}" alt="">
         </div>
-        <img src="{{item.urls.small}}" alt="">
       </div>
-    </div>
-    <div>
-      <div class="picture"
-           *ngFor="let item of searchData.results?.slice(searchData.results.length / 3, -searchData.results.length / 3);
+      <div>
+        <div class="picture"
+             (click)="showPictureSecond(i)"
+             *ngFor="let item of searchData.results?.slice(searchData.results.length / 3, -searchData.results.length / 3);
             index as i">
-        <div class="shadow">
-          <div class="button-field">
-            <button class="heart">
-              <fa-icon [icon]="faHeart"></fa-icon></button>
-            <button>
-              <a style="color:black"
-                 href="https://unsplash.com/photos/{{item.id}}/download?force=true">
-                <fa-icon [icon]="faArrowDown"></fa-icon>
-              </a>
-            </button>
+          <div class="shadow">
+            <div class="button-field">
+              <button class="heart"
+                      (mouseenter)="posMouseValue()"
+                      (mouseleave)="negMouseValue()"
+                      [ngClass]="{'active-heart': searchData.results[i + 10].liked_by_user}"
+                      (click)="likePhotoSecond(i)">
+                <fa-icon [icon]="faHeart"></fa-icon></button>
+              <button>
+                <a style="color:black"
+                   href="https://unsplash.com/photos/{{item.id}}/download?force=true">
+                  <fa-icon [icon]="faArrowDown"></fa-icon>
+                </a>
+              </button>
+            </div>
           </div>
+          <img src="{{item.urls.small}}" alt="">
         </div>
-        <img src="{{item.urls.small}}" alt="">
       </div>
-    </div>
-    <div>
-      <div class="picture"
-           *ngFor="let item of searchData.results?.slice(searchData.results.length / 3 * 2); index as i">
-        <div class="shadow">
-          <div class="button-field">
-            <button class="heart">
-              <fa-icon [icon]="faHeart"></fa-icon>
-            </button>
-            <button>
-              <a style="color:black"
-                 href="https://unsplash.com/photos/{{item.id}}/download?force=true">
-                <fa-icon [icon]="faArrowDown"></fa-icon>
-              </a>
-            </button>
+      <div>
+        <div class="picture"
+             (click)="showPictureThird(i)"
+             *ngFor="let item of searchData.results?.slice(searchData.results.length / 3 * 2); index as i">
+          <div class="shadow">
+            <div class="button-field">
+              <button class="heart"
+                      (mouseenter)="posMouseValue()"
+                      (mouseleave)="negMouseValue()"
+                      [ngClass]="{'active-heart': searchData.results[i + 20].liked_by_user}"
+                      (click)="likePhotoThird(i)">
+                <fa-icon [icon]="faHeart"></fa-icon>
+              </button>
+              <button>
+                <a style="color:black"
+                   href="https://unsplash.com/photos/{{item.id}}/download?force=true">
+                  <fa-icon [icon]="faArrowDown"></fa-icon>
+                </a>
+              </button>
+            </div>
           </div>
+          <img src="{{item.urls.small}}" alt="">
         </div>
-        <img src="{{item.urls.small}}" alt="">
       </div>
+    </ng-template>
+  </div>
+</div>
+<div class="single-picture"
+     (click)="hidePicture()"
+     *ngIf="show">
+  <button (click)="hidePicture()">
+    <fa-icon size="3x" [icon]="faTimes"></fa-icon>
+  </button>
+  <div class="flex-field">
+    <div class="white-wall">
+      <img src="{{image}}" alt="">
     </div>
   </div>
 </div>
+
+<ng-template #noData>
+  <div class="no-data">
+    <p>Loading...</p>
+    <div class="lds-roller">
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+  </div>
+</ng-template>
