@@ -19,12 +19,18 @@
 </nav>
 <div class="wall">
   <div class="categories">
-    <button (click)="showCategoryPhotos('Architecture')">Architecture</button>
-    <button (click)="showCategoryPhotos('Experimental')">Experimental</button>
-    <button (click)="showCategoryPhotos('Fashion')">Fashion</button>
-    <button (click)="showCategoryPhotos('Film')">Film</button>
-    <button (click)="showCategoryPhotos('Nature')">Nature</button>
-    <button (click)="showCategoryPhotos('People')">People</button>
+    <button routerLink="/search"
+            (click)="showCategoryPhotos('Architecture')">Architecture</button>
+    <button routerLink="/search"
+            (click)="showCategoryPhotos('Experimental')">Experimental</button>
+    <button routerLink="/search"
+            (click)="showCategoryPhotos('Fashion')">Fashion</button>
+    <button routerLink="/search"
+            (click)="showCategoryPhotos('Film')">Film</button>
+    <button routerLink="/search"
+            (click)="showCategoryPhotos('Nature')">Nature</button>
+    <button routerLink="/search"
+            (click)="showCategoryPhotos('People')">People</button>
   </div>
 </div>
 <div class="additional-search" *ngIf="picture">
@@ -39,7 +45,9 @@
     <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=999&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=999&amp;h=594 2x" media="(min-width: 800px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=799&amp;h=594 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=799&amp;h=594 2x" media="(min-width: 600px)"/>
     <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=599&amp;h=310 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=599&amp;h=310 2x" media="(min-width: 400px)"/><source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=399&amp;h=230 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=399&amp;h=230 2x" media="(min-width: 200px)"/>
     <source srcSet="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=199&amp;h=230 1x, https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=2&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=199&amp;h=230 2x"/>
-    <img role="presentation" src="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1000&amp;h=1000" alt=""/>
+    <img role="presentation"
+         src="https://images.unsplash.com/photo-1599335727546-450eb6753648?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1000&amp;h=1000"
+         alt=""/>
   </picture>
   <form #form="ngForm"
         (ngSubmit)="submit(form); hidePicture(form)">

@@ -34,9 +34,9 @@
           <div class="shadow">
             <div class="button-field">
               <button class="heart"
+                      [ngClass]="{'active-heart': data[i + 10].liked_by_user}"
                       (mouseenter)="posMouseValue()"
                       (mouseleave)="negMouseValue()"
-                      [ngClass]="{'active-heart': data[i + 10].liked_by_user}"
                       (click)="likePhotoSecond(i)">
                 <fa-icon [icon]="faHeart"></fa-icon>
               </button>
@@ -61,9 +61,9 @@
             <div class="shadow">
               <div class="button-field">
                 <button class="heart"
+                        [ngClass]="{'active-heart': data[i + 20].liked_by_user}"
                         (mouseenter)="posMouseValue()"
                         (mouseleave)="negMouseValue()"
-                        [ngClass]="{'active-heart': data[i + 20].liked_by_user}"
                         (click)="likePhotoThird(i)">
                   <fa-icon [icon]="faHeart"></fa-icon>
                 </button>
